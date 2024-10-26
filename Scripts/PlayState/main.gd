@@ -20,16 +20,16 @@ var ratingValue : float = 0.0
 # 4k:
 
 # Up:
-@onready var UpLeft = $Playflied/Up/Left
-@onready var UpDown = $Playflied/Up/Down
-@onready var UpUp = $Playflied/Up/Up
-@onready var UpRight = $Playflied/Up/Right
+@onready var UpLeft = $"Playflied/4k/Left/Receptor/UpLeft"
+@onready var UpDown = $"Playflied/4k/Down/Receptor/UpDown"
+@onready var UpUp = $"Playflied/4k/Up/Receptor/UpUp"
+@onready var UpRight = $"Playflied/4k/Right/Receptor/UpRight"
 
 #Down:
-@onready var DownLeft = $Playflied/Down/Left
-@onready var DownDown = $Playflied/Down/Down
-@onready var DownUp = $Playflied/Down/Up
-@onready var DownRight = $Playflied/Down/Right
+@onready var DownLeft = $"Playflied/4k/Left/Receptor/DownLeft"
+@onready var DownDown = $"Playflied/4k/Down/Receptor/DownDown"
+@onready var DownUp = $"Playflied/4k/Up/Receptor/DownUp"
+@onready var DownRight = $"Playflied/4k/Right/Receptor/DownRight"
 
 #active:
 var LeftActive = false

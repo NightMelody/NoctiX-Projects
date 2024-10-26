@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfonvgo5788qs"]
+[gd_scene load_steps=18 format=3 uid="uid://cfonvgo5788qs"]
 
 [ext_resource type="Script" path="res://Scripts/PlayState/main.gd" id="1_2bygk"]
 [ext_resource type="Texture2D" uid="uid://bvloqsnovq2ko" path="res://Assets/Custom/Skin/Default/4k/Receptors/Up/1.png" id="1_7edt5"]
@@ -12,13 +12,24 @@
 [ext_resource type="Texture2D" uid="uid://cohtyf2u143ab" path="res://Assets/Custom/Skin/Default/4k/Receptors/Down/4.png" id="8_2lpe4"]
 [ext_resource type="Texture2D" uid="uid://cpthh822l7hfg" path="res://Assets/Images/RatingLine.png" id="9_f01t3"]
 [ext_resource type="Script" path="res://Scripts/PlayState/HitObjects.gd" id="11_gld6l"]
+[ext_resource type="Texture2D" uid="uid://clguv214npnfc" path="res://Assets/Custom/Skin/Default/4k/HitObjects/1.png" id="13_bhic7"]
 [ext_resource type="AudioStream" uid="uid://k48fufkekipa" path="res://Assets/StoryMode/Songs/Mortals/Warriyo, Laura Brehm - Mortals (feat. Laura Brehm) [NCS Release].mp3" id="17_0x8jq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i31fp"]
+size = Vector3(74.741, 217.083, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_khwry"]
+size = Vector3(1, 217.083, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sojvl"]
+size = Vector3(1, 217.083, 1)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_2bygk")
+StepManiaScroll = true
 
 [node name="Playflied" type="Node3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 script = ExtResource("2_gyixn")
 
 [node name="HitObjectsControl" type="Node3D" parent="Playflied"]
@@ -48,6 +59,11 @@ texture = ExtResource("9_f01t3")
 
 [node name="HitObjects" type="Node3D" parent="Playflied/4k/Left"]
 
+[node name="1" type="Sprite3D" parent="Playflied/4k/Left/HitObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 379.604, 0)
+pixel_size = 0.5
+texture = ExtResource("13_bhic7")
+
 [node name="Down" type="Node3D" parent="Playflied/4k"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.5, -220, 0)
 
@@ -66,6 +82,13 @@ texture = ExtResource("6_quvm7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
 pixel_size = 1.0
 texture = ExtResource("9_f01t3")
+
+[node name="Area3D" type="Area3D" parent="Playflied/4k/Down/Receptor/Down"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Playflied/4k/Down/Receptor/Down/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0663071, 39.094, 0)
+shape = SubResource("BoxShape3D_i31fp")
+metadata/_edit_group_ = true
 
 [node name="HitObjects" type="Node3D" parent="Playflied/4k/Down"]
 
@@ -88,6 +111,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
 pixel_size = 1.0
 texture = ExtResource("9_f01t3")
 
+[node name="Area3D" type="Area3D" parent="Playflied/4k/Up/Receptor/Up"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Playflied/4k/Up/Receptor/Up/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0663071, 39.094, 0)
+shape = SubResource("BoxShape3D_khwry")
+metadata/_edit_group_ = true
+
 [node name="HitObjects" type="Node3D" parent="Playflied/4k/Up"]
 
 [node name="Right" type="Node3D" parent="Playflied/4k"]
@@ -109,6 +139,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
 pixel_size = 1.0
 texture = ExtResource("9_f01t3")
 
+[node name="Area3D" type="Area3D" parent="Playflied/4k/Right/Receptor/Right"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Playflied/4k/Right/Receptor/Right/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0663071, 39.094, 0)
+shape = SubResource("BoxShape3D_sojvl")
+metadata/_edit_group_ = true
+
 [node name="HitObjects" type="Node3D" parent="Playflied/4k/Right"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -118,3 +155,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 463.567)
 stream = ExtResource("17_0x8jq")
 autoplay = true
 bus = &"Music"
+
+[connection signal="area_entered" from="Playflied/4k/Right/Receptor/Right/Area3D" to="Playflied/HitObjectsControl" method="_on_area_3d_area_entered"]
