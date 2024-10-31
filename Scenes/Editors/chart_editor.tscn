@@ -1,0 +1,142 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1wn7wl6hmf2a"]
+
+[ext_resource type="Texture2D" uid="uid://cpthh822l7hfg" path="res://Assets/Images/RatingLine.png" id="1_keeco"]
+[ext_resource type="Texture2D" uid="uid://bvloqsnovq2ko" path="res://Assets/Custom/Skin/Default/4k/Receptors/Up/1.png" id="2_a26yy"]
+[ext_resource type="Texture2D" uid="uid://c405x4wcuifmr" path="res://Assets/Custom/Skin/Default/4k/Receptors/Up/2.png" id="3_ohftv"]
+[ext_resource type="Texture2D" uid="uid://cbrlanyfgceyl" path="res://Assets/Custom/Skin/Default/4k/Receptors/Up/3.png" id="4_b478p"]
+[ext_resource type="Texture2D" uid="uid://cfl7dgeouqhop" path="res://Assets/Custom/Skin/Default/4k/Receptors/Up/4.png" id="5_o1df4"]
+
+[node name="ChartEditor" type="Node2D"]
+
+[node name="Playfield" type="Node2D" parent="."]
+scale = Vector2(1.24, 1.24)
+
+[node name="GridBG" type="ColorRect" parent="Playfield"]
+offset_left = -150.0
+offset_top = -290.0
+offset_right = 150.0
+offset_bottom = 290.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="4K" type="Node2D" parent="Playfield"]
+
+[node name="Left" type="Node2D" parent="Playfield/4K"]
+position = Vector2(-112.5, 220)
+
+[node name="Receptor" type="Node2D" parent="Playfield/4K/Left"]
+
+[node name="Receptor" type="Sprite2D" parent="Playfield/4K/Left/Receptor"]
+position = Vector2(0, 40)
+texture = ExtResource("1_keeco")
+
+[node name="LeftUp" type="Sprite2D" parent="Playfield/4K/Left/Receptor"]
+texture = ExtResource("2_a26yy")
+
+[node name="LeftDown" type="Sprite2D" parent="Playfield/4K/Left/Receptor"]
+visible = false
+
+[node name="HitObjects" type="Node2D" parent="Playfield/4K/Left"]
+
+[node name="Down" type="Node2D" parent="Playfield/4K"]
+position = Vector2(-37.5, 220)
+
+[node name="Receptor" type="Node2D" parent="Playfield/4K/Down"]
+
+[node name="Receptor" type="Sprite2D" parent="Playfield/4K/Down/Receptor"]
+position = Vector2(0, 40)
+texture = ExtResource("1_keeco")
+
+[node name="DownUp" type="Sprite2D" parent="Playfield/4K/Down/Receptor"]
+texture = ExtResource("3_ohftv")
+
+[node name="DownDown" type="Sprite2D" parent="Playfield/4K/Down/Receptor"]
+visible = false
+
+[node name="HitObjects" type="Node2D" parent="Playfield/4K/Down"]
+
+[node name="Up" type="Node2D" parent="Playfield/4K"]
+position = Vector2(37.5, 220)
+
+[node name="Receptor" type="Node2D" parent="Playfield/4K/Up"]
+
+[node name="Receptor" type="Sprite2D" parent="Playfield/4K/Up/Receptor"]
+position = Vector2(0, 40)
+texture = ExtResource("1_keeco")
+
+[node name="UpUp" type="Sprite2D" parent="Playfield/4K/Up/Receptor"]
+texture = ExtResource("4_b478p")
+
+[node name="UpDown" type="Sprite2D" parent="Playfield/4K/Up/Receptor"]
+visible = false
+
+[node name="HitObjects" type="Node2D" parent="Playfield/4K/Up"]
+
+[node name="Right" type="Node2D" parent="Playfield/4K"]
+position = Vector2(112.5, 220)
+
+[node name="Receptor" type="Node2D" parent="Playfield/4K/Right"]
+
+[node name="Receptor" type="Sprite2D" parent="Playfield/4K/Right/Receptor"]
+position = Vector2(0, 40)
+texture = ExtResource("1_keeco")
+
+[node name="RightUp" type="Sprite2D" parent="Playfield/4K/Right/Receptor"]
+texture = ExtResource("5_o1df4")
+
+[node name="RightDown" type="Sprite2D" parent="Playfield/4K/Right/Receptor"]
+visible = false
+
+[node name="HitObjects" type="Node2D" parent="Playfield/4K/Right"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = -626.0
+offset_top = -303.0
+offset_right = -474.0
+offset_bottom = 331.0
+
+[node name="SoftHit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Soft"
+
+[node name="NormalHit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Normal
+"
+
+[node name="HardHit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Hard"
+
+[node name="DrumHit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Drum"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SelectButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Select"
+
+[node name="SingleButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Single"
+
+[node name="LongButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Long
+"
+
+[node name="HurtButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Hurt"

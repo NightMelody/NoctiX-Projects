@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var mode = 4
-@export var scrollSpeed = 100
+@export var scrollSpeed : float = 0.1
 @export var StepManiaScroll = false
 
 var Rating : Dictionary = {
