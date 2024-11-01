@@ -16,10 +16,12 @@
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_2bygk")
+scrollSpeed = 0.3
 
 [node name="Playflied" type="Node3D" parent="."]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 script = ExtResource("2_gyixn")
+rangeClick = 10
 
 [node name="HitObjectsControl" type="Node3D" parent="Playflied"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -275, 0)

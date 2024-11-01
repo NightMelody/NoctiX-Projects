@@ -1,0 +1,122 @@
+[gd_scene load_steps=14 format=3 uid="uid://cfonvgo5788qs"]
+
+[ext_resource type="Script" path="res://Scripts/PlayState/main.gd" id="1_2bygk"]
+[ext_resource type="Texture2D" uid="uid://bvloqsnovq2ko" path="res://Assets/Custom/Skin/Default/4k/Receptors/Up/1.png" id="1_7edt5"]
+[ext_resource type="Texture2D" uid="uid://c405x4wcuifmr" path="res://Assets/Custom/Skin/Default/4k/Receptors/Up/2.png" id="2_25857"]
+[ext_resource type="Script" path="res://Scripts/PlayState/Playflied.gd" id="2_gyixn"]
+[ext_resource type="Texture2D" uid="uid://cbrlanyfgceyl" path="res://Assets/Custom/Skin/Default/4k/Receptors/Up/3.png" id="3_wbktd"]
+[ext_resource type="Texture2D" uid="uid://cfl7dgeouqhop" path="res://Assets/Custom/Skin/Default/4k/Receptors/Up/4.png" id="4_4s70j"]
+[ext_resource type="Texture2D" uid="uid://dh006l7aoqnix" path="res://Assets/Custom/Skin/Default/4k/Receptors/Down/1.png" id="5_mtb7j"]
+[ext_resource type="Texture2D" uid="uid://ck7xsjxk3sci3" path="res://Assets/Custom/Skin/Default/4k/Receptors/Down/2.png" id="6_quvm7"]
+[ext_resource type="Texture2D" uid="uid://cd1do25mranuy" path="res://Assets/Custom/Skin/Default/4k/Receptors/Down/3.png" id="7_y78mn"]
+[ext_resource type="Texture2D" uid="uid://cohtyf2u143ab" path="res://Assets/Custom/Skin/Default/4k/Receptors/Down/4.png" id="8_2lpe4"]
+[ext_resource type="Texture2D" uid="uid://cpthh822l7hfg" path="res://Assets/Images/RatingLine.png" id="9_f01t3"]
+[ext_resource type="Script" path="res://Scripts/PlayState/HitObjects.gd" id="11_gld6l"]
+[ext_resource type="AudioStream" uid="uid://k48fufkekipa" path="res://Assets/StoryMode/Songs/Mortals/Warriyo, Laura Brehm - Mortals (feat. Laura Brehm) [NCS Release].mp3" id="17_0x8jq"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_2bygk")
+scrollSpeed = 0.3
+
+[node name="Playflied" type="Node3D" parent="."]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+script = ExtResource("2_gyixn")
+rangeClick = 10
+
+[node name="HitObjectsControl" type="Node3D" parent="Playflied"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -275, 0)
+script = ExtResource("11_gld6l")
+
+[node name="4k" type="Node3D" parent="Playflied"]
+
+[node name="Left" type="Node3D" parent="Playflied/4k"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.5, -220, 0)
+
+[node name="Receptor" type="Node3D" parent="Playflied/4k/Left"]
+
+[node name="UpLeft" type="Sprite3D" parent="Playflied/4k/Left/Receptor"]
+pixel_size = 1.0
+texture = ExtResource("1_7edt5")
+
+[node name="DownLeft" type="Sprite3D" parent="Playflied/4k/Left/Receptor"]
+visible = false
+pixel_size = 1.0
+texture = ExtResource("5_mtb7j")
+
+[node name="Left" type="Sprite3D" parent="Playflied/4k/Left/Receptor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
+pixel_size = 1.0
+texture = ExtResource("9_f01t3")
+
+[node name="HitObjects" type="Node3D" parent="Playflied/4k/Left"]
+
+[node name="Down" type="Node3D" parent="Playflied/4k"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.5, -220, 0)
+
+[node name="Receptor" type="Node3D" parent="Playflied/4k/Down"]
+
+[node name="UpDown" type="Sprite3D" parent="Playflied/4k/Down/Receptor"]
+pixel_size = 1.0
+texture = ExtResource("2_25857")
+
+[node name="DownDown" type="Sprite3D" parent="Playflied/4k/Down/Receptor"]
+visible = false
+pixel_size = 1.0
+texture = ExtResource("6_quvm7")
+
+[node name="Down" type="Sprite3D" parent="Playflied/4k/Down/Receptor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
+pixel_size = 1.0
+texture = ExtResource("9_f01t3")
+
+[node name="HitObjects" type="Node3D" parent="Playflied/4k/Down"]
+
+[node name="Up" type="Node3D" parent="Playflied/4k"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.5, -220, 0)
+
+[node name="Receptor" type="Node3D" parent="Playflied/4k/Up"]
+
+[node name="UpUp" type="Sprite3D" parent="Playflied/4k/Up/Receptor"]
+pixel_size = 1.0
+texture = ExtResource("3_wbktd")
+
+[node name="DownUp" type="Sprite3D" parent="Playflied/4k/Up/Receptor"]
+visible = false
+pixel_size = 1.0
+texture = ExtResource("7_y78mn")
+
+[node name="Up" type="Sprite3D" parent="Playflied/4k/Up/Receptor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
+pixel_size = 1.0
+texture = ExtResource("9_f01t3")
+
+[node name="HitObjects" type="Node3D" parent="Playflied/4k/Up"]
+
+[node name="Right" type="Node3D" parent="Playflied/4k"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.5, -220, 0)
+
+[node name="Receptor" type="Node3D" parent="Playflied/4k/Right"]
+
+[node name="UpRight" type="Sprite3D" parent="Playflied/4k/Right/Receptor"]
+pixel_size = 1.0
+texture = ExtResource("4_4s70j")
+
+[node name="DownRight" type="Sprite3D" parent="Playflied/4k/Right/Receptor"]
+visible = false
+pixel_size = 1.0
+texture = ExtResource("8_2lpe4")
+
+[node name="Right" type="Sprite3D" parent="Playflied/4k/Right/Receptor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40, 0)
+pixel_size = 1.0
+texture = ExtResource("9_f01t3")
+
+[node name="HitObjects" type="Node3D" parent="Playflied/4k/Right"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 463.567)
+
+[node name="BeatMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_0x8jq")
+autoplay = true
+bus = &"Music"
