@@ -23,9 +23,14 @@ var down_held = false
 var up_held = false
 var right_held = false
 
+var Left_Child: int
+var Down_Child: int
+var Up_Child: int
+var Right_Child: int
+
 @export var rangeClick = 100
 
-var Chart : Dictionary = { # ID: [column, song position in ms, grid position, hold]
+var Chart : Dictionary = { # ID: [column, song position in ms, grid position, hold, is hurt]
 	0: [0, 3000, null, 0, false],
 	1: [1, 2000, null, 0, false],
 	2: [1, 1000, null, 0, false],
@@ -45,6 +50,7 @@ var song_time_ms: int
 func _ready():
 	stepManiaScroll(Vector3(1, -1, 1), Vector3(1.25, -1.25, 1.25))
 	generateUnspawn()
+	
 func _process(delta):
 	song_time = MusicBeatState.get_playback_position()
 	song_time_ms = round(song_time * 1000)
@@ -54,6 +60,11 @@ func _process(delta):
 	#checkHit()
 	
 	#beatCount(delta)
+	
+	
+func position_at_time_down(time: float) -> float:
+	return Down.position.y * ((time - song_time_ms) * scrollSpeed)
+	
 var Left_Bool: bool = 1
 var Down_Bool: bool = 1
 var Up_Bool: bool = 1
@@ -93,6 +104,9 @@ func generateUnspawn():
 				down.pixel_size = 0.5
 				down.offset = Vector2(0, down.texture.get_height() / 2)
 				Down.add_child(down)
+				
+				Down_Child = Down.get_child_count()
+				
 			if column == 2:
 				var up = Sprite3D.new()
 				up.name = str(note_data)

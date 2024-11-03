@@ -77,4 +77,3 @@ func inputCheck() -> void:
 		DownRight.visible = false
 		RightActive = false
 		
-
