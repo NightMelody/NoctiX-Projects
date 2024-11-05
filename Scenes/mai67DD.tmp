@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cfonvgo5788qs"]
+[gd_scene load_steps=14 format=3 uid="uid://cfonvgo5788qs"]
 
 [ext_resource type="Script" path="res://Scripts/PlayState/main.gd" id="1_2bygk"]
 [ext_resource type="Texture2D" uid="uid://bvloqsnovq2ko" path="res://Assets/Custom/Skin/Default/4k/Receptors/Up/1.png" id="1_7edt5"]
@@ -12,12 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://cohtyf2u143ab" path="res://Assets/Custom/Skin/Default/4k/Receptors/Down/4.png" id="8_2lpe4"]
 [ext_resource type="Texture2D" uid="uid://cpthh822l7hfg" path="res://Assets/Images/RatingLine.png" id="9_f01t3"]
 [ext_resource type="Script" path="res://Scripts/PlayState/HitObjects.gd" id="11_gld6l"]
-[ext_resource type="Texture2D" uid="uid://bmp7f1r5hhskj" path="res://Assets/Custom/Skin/Default/Rating/Marvelous.png" id="13_46eai"]
 [ext_resource type="AudioStream" uid="uid://k48fufkekipa" path="res://Assets/StoryMode/Songs/Mortals/Warriyo, Laura Brehm - Mortals (feat. Laura Brehm) [NCS Release].mp3" id="17_0x8jq"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_2bygk")
-scrollSpeed = 1.0
+scrollSpeed = 0.3
 
 [node name="Playflied" type="Node3D" parent="."]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
@@ -121,11 +120,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 463.567)
 stream = ExtResource("17_0x8jq")
 autoplay = true
 bus = &"Music"
-
-[node name="CamHUD" type="Camera3D" parent="."]
-
-[node name="Rating" type="Sprite3D" parent="CamHUD"]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, -62.5, 0)
-modulate = Color(1, 1, 1, 0)
-pixel_size = 0.25
-texture = ExtResource("13_46eai")

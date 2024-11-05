@@ -15,4 +15,4 @@ func parse_hitobject_name(node_name):
 		return null
 """
 
-  
+
